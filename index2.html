@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Photo Gallery.br</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .photo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .photo img {
+      width: 200px;
+      height: 150px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .photo img:hover {
+      transform: scale(1.05);
+    }
+
+    .download-btn {
+      margin-top: 5px;
+      padding: 6px 12px;
+      background-color: #008CBA;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #005f75;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Downloadable Online Photo Gallery</h1>
+
+  <div class="gallery">
+    <!-- Replace the sample links below with your own image URLs -->
+
+    <div class="photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Xp9qYUBEhyhLRWr1r-oIOam8hSfqwQOKPg&s" alt="Image 1">
+      <a href="    https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Xp9qYUBEhyhLRWr1r-oIOam8hSfqwQOKPg&s    " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="    https://cdn.mos.cms.futurecdn.net/v2/t:0,l:420,cw:1080,ch:1080,q:80,w:1080/6rLn9bm594drr7izET26mG.jpg " alt="Image 2">
+      <a href=" https://cdn.mos.cms.futurecdn.net/v2/t:0,l:420,cw:1080,ch:1080,q:80,w:1080/6rLn9bm594drr7izET26mG.jpg  " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjpEjnVf8uk2zO_CEB4IpnLlhN8qs3zCHbvzfl9jVpnr53BBNTSEL6AUiP2Sca13c9wuY&usqp=CAU " alt="Image 3">
+      <a href="  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjpEjnVf8uk2zO_CEB4IpnLlhN8qs3zCHbvzfl9jVpnr53BBNTSEL6AUiP2Sca13c9wuY&usqp=CAU  " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="https://media.istockphoto.com/id/1190647327/photo/teenage-boy-drinking-caffeine-energy-drink-gaming-at-home-using-dual-computer-screens-at-night.jpg?s=612x612&w=0&k=20&c=63YBxcoPkoIRyRZqz67cF2OvVvDEm4Fs31VaiY70dCg=" alt="Image 4">
+      <a href="  https://media.istockphoto.com/id/1190647327/photo/teenage-boy-drinking-caffeine-energy-drink-gaming-at-home-using-dual-computer-screens-at-night.jpg?s=612x612&w=0&k=20&c=63YBxcoPkoIRyRZqz67cF2OvVvDEm4Fs31VaiY70dCg=   " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrvhKuKUiI5Y5GFCaxeMzanuMc84QoDnC_WYrT1zEAJeB02X54sPEQ4mf4UxU-llC40cU&usqp=CAU  " alt="Image 5">
+      <a href=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrvhKuKUiI5Y5GFCaxeMzanuMc84QoDnC_WYrT1zEAJeB02X54sPEQ4mf4UxU-llC40cU&usqp=CAU       " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlYEcxEQW33Ygzmn7R_1gRFWIP1bwDlz7-g&s   " alt="Image 6">
+      <a href="  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlYEcxEQW33Ygzmn7R_1gRFWIP1bwDlz7-g&s  " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="    https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYqE3fL6yM6nM3MN0RnWZwDKdE69F2i-B9Bg&s   " alt="Image 7">
+      <a href="        https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYqE3fL6yM6nM3MN0RnWZwDKdE69F2i-B9Bg&s  " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src=" https://images.unsplash.com/photo-1551434678-e076c223a692?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya2luZyUyMG9uJTIwY29tcHV0ZXJ8ZW58MHx8MHx8fDA%3D " alt="Image 8">
+      <a href=" https://images.unsplash.com/photo-1551434678-e076c223a692?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya2luZyUyMG9uJTIwY29tcHV0ZXJ8ZW58MHx8MHx8fDA%3D    " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="https://img.freepik.com/free-photo/social-integration-working-team_23-2149341113.jpg?semt=ais_hybrid&w=740   " alt="Image 9">
+      <a href=" https://img.freepik.com/free-photo/social-integration-working-team_23-2149341113.jpg?semt=ais_hybrid&w=740   " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="https://www.shutterstock.com/shutterstock/videos/3521478161/thumb/1.jpg?ip=x480" alt="Image 10">
+      <a href="https://www.shutterstock.com/shutterstock/videos/3521478161/thumb/1.jpg?ip=x480" download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6OOYfivI6LSfetwZ-cFzAv3bsOZ6OvQXq-w&s" alt="Image 11">
+      <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6OOYfivI6LSfetwZ-cFzAv3bsOZ6OvQXq-w&s" download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6OOYfivI6LSfetwZ-cFzAv3bsOZ6OvQXq-w&s" alt="Image 12">
+      <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6OOYfivI6LSfetwZ-cFzAv3bsOZ6OvQXq-w&s " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src=" https://img.freepik.com/free-photo/social-integration-working-team_23-2149341113.jpg?semt=ais_hybrid&w=740 " alt="Image 13">
+      <a href="  https://img.freepik.com/free-photo/social-integration-working-team_23-2149341113.jpg?semt=ais_hybrid&w=740    " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+   
+      <img src="https://cdn.mos.cms.futurecdn.net/mZWTSqsHwPqLJ4WCez9mSm-1200-80.jpg " alt="Image 16">
+      <a href="https://cdn.mos.cms.futurecdn.net/mZWTSqsHwPqLJ4WCez9mSm-1200-80.jpg" download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3s61Sh-JNswQu-hjpiqQuSTHIcVeTGA8jsg&s " alt="Image 17">
+      <a href=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3s61Sh-JNswQu-hjpiqQuSTHIcVeTGA8jsg&s  " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="https://4650993.fs1.hubspotusercontent-na1.net/hubfs/4650993/New_Avast_Academy/how_to_check_your_pc_specs_academy/Academy-How-to-Check-Your-PC-Specs-Thumb.jpg" alt="Image 18">
+      <a href="https://4650993.fs1.hubspotusercontent-na1.net/hubfs/4650993/New_Avast_Academy/how_to_check_your_pc_specs_academy/Academy-How-to-Check-Your-PC-Specs-Thumb.jpg" download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhAt95zoWbXkKKnCMWX8y93o3_LJrtgXwUg&s " alt="Image 19">
+      <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVhAt95zoWbXkKKnCMWX8y93o3_LJrtgXwUg&s  " download class="download-btn">Download</a>
+    </div>
+    <div class="photo">
+      <img src="   https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX_XBLL4F3I2vNBCqHQk2lneOIbAzKahi_Cg&s" alt="Image 20">
+      <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX_XBLL4F3I2vNBCqHQk2lneOIbAzKahi_Cg&s  " download class="download-btn">Download</a>
+    </div>
+   <div class="photo">
+      <img src="https://cdn.mos.cms.futurecdn.net/v2/t:0,l:364,cw:3456,ch:3456,q:80,w:3456/5756c73edeaa73b9aad499fb0893e0d7.jpg" alt="Image 20">
+      <a href="https://cdn.mos.cms.futurecdn.net/v2/t:0,l:364,cw:3456,ch:3456,q:80,w:3456/5756c73edeaa73b9aad499fb0893e0d7.jpg " download class="download-btn">Download</a>
+    </div>
+       <div class="photo">
+      <img src="https://img1.wsimg.com/isteam/ip/0a462fee-c50e-430a-81fa-5d2242f74a0f/PXL_20241027_021236472.jpg" alt="Image 20">
+      <a href=" https://img1.wsimg.com/isteam/ip/0a462fee-c50e-430a-81fa-5d2242f74a0f/PXL_20241027_021236472.jpg  " download class="download-btn">Download</a>
+    </div>
+
+  </div>
+
+
+  <!-- Lightbox for preview -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" />
+  </div>
+
+  <script>
+    const galleryImages = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+
+    galleryImages.forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+  </script>
+</body>
+</html>
